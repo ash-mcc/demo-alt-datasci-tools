@@ -1,7 +1,7 @@
 files:
 
   dvc: 
-    params: src/params.py
+    params: src/py/params.py
     metrics: metrics.json
     live: dvclive
 

@@ -88,9 +88,23 @@ Package        Version
 
 ## DVC - experiment tracking, reproducibility, data and code
 
-Demo-ing tracked ML experiments over an Iris dataset.
-```
+Commands to demo tracked ML experiments over an Iris dataset.
 
+```
+# Get the data
+$ dvc update data/*.dvc
+
+# Run the whole pipeline
+$ dvc repro
+
+# Show the metrics 
+$ dvc exp show 
+
+# Pipe those metrics into a CSV
+$ dvc exp show --csv --all-branches > show.csv
+
+# Show those metrics as a parallel coordinates plot
+$ dvc exp show --pcp --all-branches
 ```
 
 
@@ -163,3 +177,9 @@ Demo-ing tracked ML experiments over an Iris dataset.
 //
 
 
+//
+// USING DVC
+//
+// create an import-data-from-a-URL .dvc file
+// dvc import -o data/xyz.csv --rev optional-branch-name-if https://github.com/user-abc/repo-lmn data/xyz.csv
+//
