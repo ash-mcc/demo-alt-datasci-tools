@@ -30,8 +30,8 @@
 
 ;; get the Iris dataset
 (def iris-df datasets/iris)
-(def class (r/r "class"))
-(class iris-df) ;; class in R
+(def clazz (r/r "class"))
+(clazz iris-df) ;; class in R
 (type iris-df) ;; type in Clojure
 
 ;; call an R function on it

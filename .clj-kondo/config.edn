@@ -1,0 +1,12 @@
+{:linters {:unresolved-namespace {:exclude [
+                                            ;; namespace aliases declared using require-python
+                                            builtins
+                                            pickle
+                                            
+                                            ;; namespace aliases declared using require-r 
+                                            graphics
+                                            GGally
+                                            stats
+                                            datasets
+                                            
+                                            ]}}}
