@@ -1,0 +1,18 @@
+# Demo some of the alternative software tools for data science
+
+> Ash will give a 15 minute demo of some of the 'less used in data science' software tools that he's been using. For example: Clojure instead of Python, Clerk instead of Jupyter, DVC instead of run-all.sh.
+
+// keep to demo-able stuff 
+// - don't preach or try to convert! 
+// - might be of interest to see slightly different tech 
+// - not a side-by-side comparison
+
+
+
+* JVM hosted (calling Java)
+* clj calling Python
+* clj calling R
+* clj on JS/Node
+* Clerk for literate programming, as a notebook in HTML, as tap output
+* DVC experiment tracking, reproducibility, data and code
+ 
