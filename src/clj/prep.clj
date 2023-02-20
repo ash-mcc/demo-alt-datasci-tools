@@ -1,9 +1,14 @@
 (ns prep
   (:require [clojure.set :as set]
+            [clojure.walk :as walk]
             [clojure.data.json :as json]
             [scicloj.ml.dataset :as ds]
             [tech.v3.dataset.column-filters :as cf]
-            [tech.v3.libs.arrow :as arrow]))
+            [tech.v3.libs.arrow :as arrow]
+            [libpython-clj2.python :as py]
+            [libpython-clj2.require :refer [require-python]]))
+
+(require-python '[dvc.api :as dvc])
 
 
 ;; ------------------------------------------
@@ -11,7 +16,7 @@
 ;;
 
 (defn -main
-  [& [iris-filepath label-lookup-filepath train-filepath test-filepath]]
+  [& [iris-filepath params-filepath label-lookup-filepath train-filepath test-filepath]]
 
   ;; load the raw source data
   (let [raw-ds (ds/dataset iris-filepath {:key-fn keyword})]
@@ -36,7 +41,12 @@
         (println "Wrote" label-lookup-filepath ", count" (count label-lookup))
 
         ;; save the train/test data
-        (let [split (ds/train-test-split numeric-ds)]
+        (let [train-fraction (-> (dvc/params_show params-filepath)
+                                 py/->jvm
+                                 walk/keywordize-keys
+                                 :splitting
+                                 :train_fraction)
+              split          (ds/train-test-split numeric-ds {:train-fraction train-fraction})]
           (arrow/dataset->stream! (:train-ds split) train-filepath)
           (println "Wrote" train-filepath ", rows x cols" (ds/shape (:train-ds split)))
           (arrow/dataset->stream! (:test-ds split) test-filepath)
@@ -49,3 +59,10 @@
 
 (apply -main *command-line-args*)
 (shutdown-agents)
+
+
+(comment
+
+  (-main "data/iris.csv" "src/py/params.py" "data/label-lookup.json" "data/train.arrow" "data/test.arrow")
+  
+  )

@@ -1,10 +1,11 @@
 stages:
 
   prep:
-    cmd: clj -M:std src/clj/prep.clj ${files.source.iris} ${files.prep.label-lookup} ${files.prep.train} ${files.prep.test}
+    cmd: clj -M:std:jni src/clj/prep.clj ${files.source.iris} ${files.dvc.params} ${files.prep.label-lookup} ${files.prep.train} ${files.prep.test}
     deps:
       - src/clj/prep.clj
       - ${files.source.iris}
+      - ${files.dvc.params}
     outs:
       - ${files.prep.label-lookup}
       - ${files.prep.train}

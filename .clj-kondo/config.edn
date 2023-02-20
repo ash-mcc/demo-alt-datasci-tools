@@ -9,4 +9,8 @@
                                             stats
                                             datasets
                                             
-                                            ]}}}
+                                            ]}
+           :unresolved-var       {:exclude [
+                                            ;; vars dynamically created by clojisr.v1.r
+                                            clojisr.v1.r/bra<-
+                                            clojisr.v1.r/bra]}}}

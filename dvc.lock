@@ -1,31 +1,34 @@
 schema: '2.0'
 stages:
   prep:
-    cmd: clj -M:std src/clj/prep.clj data/iris.csv data/label-lookup.json data/train.arrow
-      data/test.arrow
+    cmd: clj -M:std:jni src/clj/prep.clj data/iris.csv src/py/params.py data/label-lookup.json
+      data/train.arrow data/test.arrow
     deps:
     - path: data/iris.csv
       md5: 57fce90c81521889c736445f058c4838
       size: 3716
     - path: src/clj/prep.clj
-      md5: 9b4e3a0e2fada323a7c3b8a332789f9d
-      size: 1863
+      md5: 3f407898a786a3b800b2306b46790c55
+      size: 2481
+    - path: src/py/params.py
+      md5: 4eaa505df086d2410a3637b067f847de
+      size: 285
     outs:
     - path: data/label-lookup.json
       md5: ab647998da67883af4434bc8af71a275
       size: 47
     - path: data/test.arrow
-      md5: 48de1196465c7d2e332f6b50f3821b5f
-      size: 3770
+      md5: 4b615f996d7527477cb62bd9fab3561e
+      size: 3970
     - path: data/train.arrow
-      md5: d67b14b07de1cace7d2d2eb5ac7199e7
-      size: 6210
+      md5: 9a36d5f86accc714a0e76e03167bb1b2
+      size: 6010
   train:
     cmd: python3 src/py/train.py data/train.arrow src/py/params.py data/model.pkl
     deps:
     - path: data/train.arrow
-      md5: d67b14b07de1cace7d2d2eb5ac7199e7
-      size: 6210
+      md5: 9a36d5f86accc714a0e76e03167bb1b2
+      size: 6010
     - path: src/py/train.py
       md5: 074fa307c108a4146ea0a411ab7d6c36
       size: 1251
@@ -34,14 +37,14 @@ stages:
         random_forest:
           n_estimators: 100
           criterion: gini
-          class_weight: balanced_subsample
+          max_features: sqrt
           n_jobs: -1
           random_state: 42
           verbose: 1
     outs:
     - path: data/model.pkl
-      md5: 4e33e813616d20c35db6737e3a606e3a
-      size: 152959
+      md5: 93ebea8e0574f71af3f778b98c4d939f
+      size: 130636
   evaluate:
     cmd: python3 src/py/evaluate.py data/model.pkl data/label-lookup.json data/test.arrow
       metrics.json dvclive feat-importance.png confusion_matrix
@@ -50,24 +53,24 @@ stages:
       md5: ab647998da67883af4434bc8af71a275
       size: 47
     - path: data/model.pkl
-      md5: 4e33e813616d20c35db6737e3a606e3a
-      size: 152959
+      md5: 93ebea8e0574f71af3f778b98c4d939f
+      size: 130636
     - path: data/test.arrow
-      md5: 48de1196465c7d2e332f6b50f3821b5f
-      size: 3770
+      md5: 4b615f996d7527477cb62bd9fab3561e
+      size: 3970
     - path: src/py/evaluate.py
       md5: efda449a8e1e339425427181f644ddab
       size: 3282
     outs:
     - path: dvclive/plots/images/feat-importance.png
-      md5: c405d11092030e7ced1e3d5c37a3da5d
-      size: 14499
+      md5: 4a9d2d449238d27fbafde3d6cdcdfd35
+      size: 14530
     - path: dvclive/plots/sklearn/confusion_matrix.json
-      md5: 06646050a7b9a48358b156cd941b7f4d
-      size: 3399
+      md5: 242077a35dc83cec0ac6b6558ab83ce6
+      size: 3772
     - path: metrics.json
-      md5: 4e9716da7d664cd9a6fdc1461a2abd35
-      size: 92
+      md5: 35d73400af57e798ac67ed5fbb06509e
+      size: 78
   predict:
     cmd: clj -M:std:jni src/clj/predict.clj data/model.pkl data/label-lookup.json  data/predictions.csv
     deps:
@@ -75,12 +78,12 @@ stages:
       md5: ab647998da67883af4434bc8af71a275
       size: 47
     - path: data/model.pkl
-      md5: 4e33e813616d20c35db6737e3a606e3a
-      size: 152959
+      md5: 93ebea8e0574f71af3f778b98c4d939f
+      size: 130636
     - path: src/clj/predict.clj
       md5: 03b4f566fe47c1d4f1ea4bdb03d2bcd7
       size: 3982
     outs:
     - path: data/predictions.csv
-      md5: 65db78b2c9b1fc34a3d83f7be74fb8ef
+      md5: 6a52455db8e348751dc7fbf4802ee988
       size: 270

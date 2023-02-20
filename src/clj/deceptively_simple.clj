@@ -7,7 +7,7 @@
 
 
 ;; me: backgorund: dist sys arch > RPC, CORBA > Oak, Java > banks ... > data sci-y
-;; interests: applied xyz, enterprise tech/interop
+;; interests: applied xyz, tech for enter-prise, inter-work, inter-op
 
 
 ;; these days... almost pick your platform and lang 
