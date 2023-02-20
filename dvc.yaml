@@ -1,9 +1,9 @@
 stages:
 
   prep:
-    cmd: clj -M:std src/prep.clj ${files.source.iris} ${files.prep.label-lookup} ${files.prep.train} ${files.prep.test}
+    cmd: clj -M:std src/clj/prep.clj ${files.source.iris} ${files.prep.label-lookup} ${files.prep.train} ${files.prep.test}
     deps:
-      - src/prep.clj
+      - src/clj/prep.clj
       - ${files.source.iris}
     outs:
       - ${files.prep.label-lookup}
@@ -11,9 +11,9 @@ stages:
       - ${files.prep.test}
 
   train:
-    cmd: python3 src/train.py ${files.prep.train} ${files.dvc.params} ${files.train.model}
+    cmd: python3 src/py/train.py ${files.prep.train} ${files.dvc.params} ${files.train.model}
     deps:
-      - src/train.py
+      - src/py/train.py
       - ${files.prep.train}
     params:
       - ${files.dvc.params}:
@@ -22,9 +22,9 @@ stages:
       - ${files.train.model}
 
   evaluate:
-    cmd: python3 src/evaluate.py ${files.train.model} ${files.prep.label-lookup} ${files.prep.test} ${files.dvc.metrics} ${files.dvc.live} ${files.evaluate.feat-importance} ${files.evaluate.confusion-matrix}
+    cmd: python3 src/py/evaluate.py ${files.train.model} ${files.prep.label-lookup} ${files.prep.test} ${files.dvc.metrics} ${files.dvc.live} ${files.evaluate.feat-importance} ${files.evaluate.confusion-matrix}
     deps:
-      - src/evaluate.py
+      - src/py/evaluate.py
       - ${files.train.model}
       - ${files.prep.label-lookup}
       - ${files.prep.test}
@@ -42,9 +42,9 @@ stages:
          y_label: Predicated class
 
   predict:
-    cmd: clj -M:std:jni src/predict.clj ${files.train.model} ${files.prep.label-lookup}  ${files.predict.predictions}
+    cmd: clj -M:std:jni src/clj/predict.clj ${files.train.model} ${files.prep.label-lookup}  ${files.predict.predictions}
     deps:
-      - src/predict.clj
+      - src/clj/predict.clj
       - ${files.train.model}
       - ${files.prep.label-lookup}
     outs:
