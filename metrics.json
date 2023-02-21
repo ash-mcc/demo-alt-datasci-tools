@@ -1,1 +1,1 @@
-{"test": {"mean_accuracy": 0.96, "weighted_avg_f1_score": 0.9602521008403361}}
+{"test": {"mean_accuracy": 1.0, "weighted_avg_f1_score": 1.0}}

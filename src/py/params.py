@@ -1,5 +1,5 @@
 splitting = {
-    'train_fraction': 0.66666 # 0.6666666
+    'train_fraction': 0.666666 # 0.6666666
 }
 
 random_forest = {
