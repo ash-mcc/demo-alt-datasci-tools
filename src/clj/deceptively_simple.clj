@@ -1,5 +1,7 @@
 (ns deceptively-simple)
 
+;; # MARKUP TITLE
+
 
 
 ;; Preamble
@@ -59,10 +61,56 @@
 
 ;; values vs stateful entities/identities ...'a stable logical entity associated with a series of different values over time'
 
-(def x-through-time (atom {:a "initial state"}))
+(def state (atom [1 1 2 3 1]))
 
-(deref x-through-time)
+(deref state)
 
-(swap! x-through-time assoc :a "state 3")
+(swap! state conj (rand-int 9))
 
-@x-through-time
+
+;; rich-viz (& ctrl) tools like Clerk
+;;
+
+(require '[nextjournal.clerk :as clerk])
+
+(clerk/serve! {:browse true})
+(clerk/show! 'nextjournal.clerk.tap)
+
+(tap> @state)
+
+(add-watch state :state-watcher 
+           (fn [_key _ref _old-value new-value]
+             (tap> (count new-value))))
+
+
+;; example Vega-lite chart
+
+(defn histo
+  [xs]
+  {:schema   "https://vega.github.io/schema/vega-lite/v5.json"
+   :data     {:values (map (fn [n] {:x n}) xs)}
+   :height   300
+   :mark     {:type "bar" :tooltip true}
+   :encoding {:x     {:field "x" :bin {:minstep 1}}
+              :y     {:aggregate "count"}}})
+
+(require '[nextjournal.clerk.viewer :as v])
+
+(add-watch state :state-watcher
+           (fn [_key _ref _old-value new-value]
+             (tap> (clerk/html [:div
+                                [:p "count " (count new-value)]
+                                (v/vl (histo new-value))]))))
+
+
+(remove-watch state :state-watcher)
+;;(clerk/halt!)
+
+
+;; a programming notebook - alt Jupyter (with a Clojure kernel)
+
+(clerk/serve! {:watch-paths ["src/clj"]
+               :port        7777
+               :browse?     false})
+(clerk/show! "src/clj/deceptively_simple.clj")
+

@@ -1,4 +1,5 @@
 .calva/
+.clerk/
 .cpcache/
 .lsp/
 .vscode/
