@@ -204,5 +204,6 @@ $ dvc exp show --pcp --all-branches
 // USING DVC
 //
 // create an import-data-from-a-URL .dvc file
-// dvc import -o data/xyz.csv --rev optional-branch-name-if https://github.com/user-abc/repo-lmn data/xyz.csv
+// cd data
+// dvc import -o xyz.csv --rev optional-branch-name-if https://github.com/user-abc/repo-lmn data/xyz.csv
 //
