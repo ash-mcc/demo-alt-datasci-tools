@@ -7,6 +7,8 @@
 ;; load the Clojure-R bridge library
 (require '[clojisr.v1.r :as r :refer [require-r]]) 
             
+
+
 ;; ask R to interprete a string as code
 ;; and assign it to a Clojure var
 (def x (r/r "1 + 5"))
@@ -14,8 +16,12 @@
 ;; an RObject is a Clojure reference to an R variable (value or function)
 (type x)
 
+
+
 ;; convert Clojure form into R code
 (r/clj->r [1 nil 3])
+
+
 
 ;; R code as a string
 (def f (r/r "function(x) x*10")) 
@@ -24,6 +30,8 @@
 (-> 5 
     f 
     r/r->clj)
+
+
 
 ;; load R's datasets library
 (require-r '[datasets :as datasets]) 
@@ -37,9 +45,14 @@
 ;; call an R function on it
 ((r/r "summary") iris-df)
 
+
+
 ;; element getters/setters
 (r/bra iris-df 1 "Sepal.Length") ;; df[1,"Sepal.Length"]
 (r/bra<- iris-df 1 "Sepal.Length" 1.2345) ;; df[1,"Sepal.Length"]<-4.2
+
+
+
 
 ;; load a couple more libs
 (require-r '[GGally :as GGally]) ;; ggplot2 specialised 
@@ -54,10 +67,17 @@
 (def iris-ds (r/r->clj iris-df))
 (type iris-ds)
 
+
+
+
 ;; load Clojure dataset functions 
 (require '[scicloj.ml.dataset :as ds])
 
 ;; a bit like R's summary() function
 (ds/info iris-ds)
+
+
+
+
 
 

@@ -1,29 +1,16 @@
 (ns deceptively-simple)
 
-;; # MARKUP TITLE
-
-
-
-;; Preamble
-;;
-
-
-;; me: backgorund: dist sys arch > RPC, CORBA > Oak, Java > banks ... > data sci-y
-;; interests: applied xyz, tech for enter-prise, inter-work, inter-op
-
-
-;; these days... almost pick your platform and lang 
-;; me: plat=JVM, lang=...
-;; want: it simple! small syntax, ~0 boilerplate, good interop... >>> Clojure
-;; demo some...
-
 
 
 ;; Deceptively simple
 ;;
 
 
-;; this env: a REPL ...REPL server ...jack-in ...interpretes Clojure 'forms'
+
+
+;; this env: a REPL ...REPL server ...jack-in ...interprets Clojure 'forms'
+
+
 
 
 ;; simple value, list (...LISP), homoiconic, vars,  nice literals
@@ -35,9 +22,15 @@
 '(+ 1 2)
 
 (def xs [1 2 3 4 5])
+(type xs)
 
 (def m {:a 1
         :b 2})
+(type m)
+
+(def s #{1 2 3 4 5})
+(type s)
+
 
 
 ;; a lib of useful, composable functions over a very small number of composable data types
@@ -47,16 +40,23 @@
 (get m :a)
 
 
+
+
 ;; proper value equality
 
 (= #{1 2 [3 4]} 
    #{2 [3 4] 1})
 
 
+
+
+
 ;; immutable data, data sharing impl
 ;; ++ for concurrency - easy to reason about state, not chopped up and wrapped in code
 
 (def ys (conj xs 0))
+
+
 
 
 ;; values vs stateful entities/identities ...'a stable logical entity associated with a series of different values over time'
@@ -66,6 +66,9 @@
 (deref state)
 
 (swap! state conj (rand-int 9))
+
+
+
 
 
 ;; rich-viz (& ctrl) tools like Clerk ...literate programming
@@ -83,7 +86,11 @@
              (tap> (count new-value))))
 
 
-;; example Vega-lite chart
+
+
+
+
+;; example Vega-lite chart (like Plotly, D3 based but more declarative)
 
 (defn histo
   [xs]
@@ -104,13 +111,39 @@
 
 
 (remove-watch state :state-watcher)
-;;(clerk/halt!)
+
+
+
+
+;; Clojure on Java - e.g. this code
+;; Clojure on a JS engine - e.g. Clerk's output
+;; (Clojure on... Node, CLR/.Net, Erlang, Erlang VM)
+
+
 
 
 ;; a programming notebook (also to static HTML) - alt Jupyter (with a Clojure kernel)
 
+;(clerk/halt!)
 (clerk/serve! {:watch-paths ["src/clj"]
                :port        7777
-               :browse?     false})
+               :browse?     true})
 (clerk/show! "src/clj/deceptively_simple.clj")
+
+
+
+#_(v/plotly {:data [{:z [[1 2 3]
+                       [3 2 1]]
+                   :type "surface"}]})
+
+
+
+
+;; proper example of an HTML+JS notebook: https://ash-mcc.github.io/jotter2/notebooks/tsp_using_smile_and_sko.html
+;; common fns in coded in Clojure
+;; used by 2 GA frameworks: SMILE (Java); scikit-opt (Python)
+;; finishes by caling MoviePy to build an animation of SMILE searching the solution space 
+
+
+
 

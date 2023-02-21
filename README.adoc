@@ -2,6 +2,7 @@
 
 > Ash will give a 15 minute demo of some of the 'less used in data science' software tools that he's been using. For example: Clojure instead of Python, Clerk instead of Jupyter, DVC instead of run-all.sh.
 
+
 // keep to demo-able stuff 
 // - don't preach or try to convert! 
 // - might be of interest to see slightly different tech 
@@ -44,6 +45,7 @@ $ dvc --version
 2.43.0
 ```
 
+
 Install a local copy of this repository.
 
 ```
@@ -51,6 +53,7 @@ Install a local copy of this repository.
 $ git clone https://github.com/ash-mcc/demo-alt-datasco-tools.git
 $ cd demo-alt-datasco-tools
 ```
+
 
 Python libraries
 
@@ -81,14 +84,31 @@ Package        Version
 ```
 
 
-## Interop demos
 
-* `src/clj/deceptively_simple.clj`
-* `src/clj/R_interop.clj`
-* `src/clj/Python_interop.clj`
+## Demo
 
 
-## DVC - experiment tracking, reproducibility, data and code
+#### Preamble
+
+// me: backgorund: formal specs > dist sys arch > RPC, CORBA > Oak, Java > banks ... > data sci-y
+// interests: applied xyz, tech for enter-prise, inter-work, inter-op
+
+// these days... almost pick your platform and lang 
+// me: plat=JVM, lang=...
+// want: it simple! small syntax, ~0 boilerplate, good interop... >>> Clojure
+// demo some...
+
+
+#### `src/clj/deceptively_simple.clj` - what Clojure looks like
+
+
+#### `src/clj/R_interop.clj` - plays nicely with statistician software
+
+
+#### `src/clj/Python_interop.clj` - plays nicely with AI-ers software
+
+
+#### DVC - experiment tracking, reproducibility, data and code
 
 Commands to demo tracked ML experiments over an Iris dataset.
 
@@ -108,6 +128,7 @@ $ dvc exp show --csv --all-branches > show.csv
 # Show those metrics as a parallel coordinates plot
 $ dvc exp show --pcp --all-branches
 ```
+
 
 
 
