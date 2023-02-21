@@ -9,11 +9,6 @@
 
 
 
-* JVM hosted (calling Java)
-* clj calling Python
-* clj calling R
-* clj on JS/Node
-* Clerk for literate programming, as a notebook in HTML, as tap output
 
 ## Computer prep
 
@@ -84,6 +79,13 @@ Package        Version
 # to make clojisr.v1.applications.plotting/plot->file
 # fully work
 ```
+
+
+## Interop demos
+
+* `src/clj/deceptively_simple.clj`
+* `src/clj/R_interop.clj`
+* `src/clj/Python_interop.clj`
 
 
 ## DVC - experiment tracking, reproducibility, data and code

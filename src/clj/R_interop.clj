@@ -1,4 +1,4 @@
-(ns plays-nicely-with-others)
+(ns R-interop)
 
 
 ;; bridging to/from R
@@ -60,12 +60,4 @@
 ;; a bit like R's summary() function
 (ds/info iris-ds)
 
-
-
-;; hosted on the JVM
-;;
-
-(System/getProperty "java.version") ;; Java version
-
-(import )
 

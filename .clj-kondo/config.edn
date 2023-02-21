@@ -1,7 +1,9 @@
 {:linters {:unresolved-namespace {:exclude [
                                             ;; namespace aliases declared using require-python
                                             builtins
+                                            pd
                                             pickle
+                                            dvc
                                             
                                             ;; namespace aliases declared using require-r 
                                             graphics

@@ -68,7 +68,7 @@
 (swap! state conj (rand-int 9))
 
 
-;; rich-viz (& ctrl) tools like Clerk
+;; rich-viz (& ctrl) tools like Clerk ...literate programming
 ;;
 
 (require '[nextjournal.clerk :as clerk])
@@ -76,7 +76,7 @@
 (clerk/serve! {:browse true})
 (clerk/show! 'nextjournal.clerk.tap)
 
-(tap> @state)
+(tap> @state) ;; tap plumbing
 
 (add-watch state :state-watcher 
            (fn [_key _ref _old-value new-value]
@@ -107,7 +107,7 @@
 ;;(clerk/halt!)
 
 
-;; a programming notebook - alt Jupyter (with a Clojure kernel)
+;; a programming notebook (also to static HTML) - alt Jupyter (with a Clojure kernel)
 
 (clerk/serve! {:watch-paths ["src/clj"]
                :port        7777
