@@ -33,7 +33,8 @@
 
 
 
-;; a lib of useful, composable functions over a very small number of composable data types
+;; a lib of useful, composable functions 
+;; over a very small number of (nestable) data structures
 
 (get xs 0)
 
@@ -41,25 +42,38 @@
 
 
 
+;; (polymorphic dispatch - yes, but not just type based)
 
-;; proper value equality
+
+
+
+;; simply, proper value equality
 
 (= #{1 2 [3 4]} 
-   #{2 [3 4] 1})
+   #{2   [3 4] 1})
 
 
 
 
 
-;; immutable data, data sharing impl
-;; ++ for concurrency - easy to reason about state, not chopped up and wrapped in code
+;; immutable data - with a behind-the-scenes data sharing impl
+;; ++ for concurrency - easy to reason about state
+;;         ...state isn't: chopped up, wrapped/hidden in code, a mutating sea
 
 (def ys (conj xs 0))
 
+xs 
+ys
+
+
+;; databases as an immutable value/at a point in time - now mainstream 
 
 
 
-;; values vs stateful entities/identities ...'a stable logical entity associated with a series of different values over time'
+
+;; values vs stateful entities/identities 
+;; ...'a stable logical entity associated with 
+;;          a series of different values over time'
 
 (def state (atom [1 1 2 3 1]))
 
@@ -71,15 +85,15 @@
 
 
 
-;; rich-viz (& ctrl) tools like Clerk ...literate programming
+;; rich-viz (& ctrl) tools like Clerk ...'literate programming'
 ;;
 
 (require '[nextjournal.clerk :as clerk])
 
-(clerk/serve! {:browse true})
-(clerk/show! 'nextjournal.clerk.tap)
+(clerk/serve! {:browse true}) ;; start a web server & browser
+(clerk/show! 'nextjournal.clerk.tap) ;; page to viz data
 
-(tap> @state) ;; tap plumbing
+(tap> @state) ;; send data into the plumbing
 
 (add-watch state :state-watcher 
            (fn [_key _ref _old-value new-value]
@@ -131,7 +145,6 @@
 (clerk/show! "src/clj/deceptively_simple.clj")
 
 
-
 #_(v/plotly {:data [{:z [[1 2 3]
                        [3 2 1]]
                    :type "surface"}]})
@@ -142,7 +155,7 @@
 ;; proper example of an HTML+JS notebook: https://ash-mcc.github.io/jotter2/notebooks/tsp_using_smile_and_sko.html
 ;; common fns in coded in Clojure
 ;; used by 2 GA frameworks: SMILE (Java); scikit-opt (Python)
-;; finishes by caling MoviePy to build an animation of SMILE searching the solution space 
+;; finishes by calling MoviePy to build an animation of SMILE searching the solution space 
 
 
 

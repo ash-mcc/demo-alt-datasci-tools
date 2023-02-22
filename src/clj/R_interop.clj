@@ -33,7 +33,7 @@
 
 
 
-;; load R's datasets library
+;; load R's library of prepared datasets
 (require-r '[datasets :as datasets]) 
 
 ;; get the Iris dataset
@@ -43,7 +43,8 @@
 (type iris-df) ;; type in Clojure
 
 ;; call an R function on it
-((r/r "summary") iris-df)
+(def summary (r/r "summary"))
+(summary iris-df)
 
 
 

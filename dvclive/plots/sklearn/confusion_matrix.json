@@ -1,25 +1,5 @@
 [
     {
-        "actual": "setosa",
-        "predicted": "setosa"
-    },
-    {
-        "actual": "versicolor",
-        "predicted": "versicolor"
-    },
-    {
-        "actual": "versicolor",
-        "predicted": "versicolor"
-    },
-    {
-        "actual": "versicolor",
-        "predicted": "versicolor"
-    },
-    {
-        "actual": "versicolor",
-        "predicted": "versicolor"
-    },
-    {
         "actual": "versicolor",
         "predicted": "versicolor"
     },
@@ -30,26 +10,6 @@
     {
         "actual": "virginica",
         "predicted": "virginica"
-    },
-    {
-        "actual": "versicolor",
-        "predicted": "versicolor"
-    },
-    {
-        "actual": "setosa",
-        "predicted": "setosa"
-    },
-    {
-        "actual": "virginica",
-        "predicted": "virginica"
-    },
-    {
-        "actual": "virginica",
-        "predicted": "virginica"
-    },
-    {
-        "actual": "versicolor",
-        "predicted": "versicolor"
     },
     {
         "actual": "virginica",
@@ -69,11 +29,91 @@
     },
     {
         "actual": "virginica",
+        "predicted": "virginica"
+    },
+    {
+        "actual": "versicolor",
+        "predicted": "versicolor"
+    },
+    {
+        "actual": "versicolor",
+        "predicted": "versicolor"
+    },
+    {
+        "actual": "virginica",
+        "predicted": "virginica"
+    },
+    {
+        "actual": "setosa",
+        "predicted": "setosa"
+    },
+    {
+        "actual": "versicolor",
         "predicted": "versicolor"
     },
     {
         "actual": "setosa",
         "predicted": "setosa"
+    },
+    {
+        "actual": "virginica",
+        "predicted": "virginica"
+    },
+    {
+        "actual": "versicolor",
+        "predicted": "versicolor"
+    },
+    {
+        "actual": "setosa",
+        "predicted": "setosa"
+    },
+    {
+        "actual": "virginica",
+        "predicted": "virginica"
+    },
+    {
+        "actual": "setosa",
+        "predicted": "setosa"
+    },
+    {
+        "actual": "setosa",
+        "predicted": "setosa"
+    },
+    {
+        "actual": "setosa",
+        "predicted": "setosa"
+    },
+    {
+        "actual": "setosa",
+        "predicted": "setosa"
+    },
+    {
+        "actual": "setosa",
+        "predicted": "setosa"
+    },
+    {
+        "actual": "virginica",
+        "predicted": "virginica"
+    },
+    {
+        "actual": "setosa",
+        "predicted": "setosa"
+    },
+    {
+        "actual": "versicolor",
+        "predicted": "versicolor"
+    },
+    {
+        "actual": "versicolor",
+        "predicted": "versicolor"
+    },
+    {
+        "actual": "setosa",
+        "predicted": "setosa"
+    },
+    {
+        "actual": "virginica",
+        "predicted": "virginica"
     },
     {
         "actual": "versicolor",
@@ -96,28 +136,20 @@
         "predicted": "versicolor"
     },
     {
+        "actual": "setosa",
+        "predicted": "setosa"
+    },
+    {
         "actual": "virginica",
+        "predicted": "virginica"
+    },
+    {
+        "actual": "versicolor",
         "predicted": "versicolor"
     },
     {
-        "actual": "setosa",
-        "predicted": "setosa"
-    },
-    {
-        "actual": "virginica",
-        "predicted": "virginica"
-    },
-    {
-        "actual": "virginica",
-        "predicted": "virginica"
-    },
-    {
-        "actual": "setosa",
-        "predicted": "setosa"
-    },
-    {
-        "actual": "virginica",
-        "predicted": "virginica"
+        "actual": "versicolor",
+        "predicted": "versicolor"
     },
     {
         "actual": "setosa",
@@ -130,6 +162,10 @@
     {
         "actual": "versicolor",
         "predicted": "versicolor"
+    },
+    {
+        "actual": "setosa",
+        "predicted": "setosa"
     },
     {
         "actual": "versicolor",
@@ -140,40 +176,12 @@
         "predicted": "virginica"
     },
     {
-        "actual": "versicolor",
-        "predicted": "versicolor"
-    },
-    {
-        "actual": "versicolor",
-        "predicted": "versicolor"
-    },
-    {
-        "actual": "setosa",
-        "predicted": "setosa"
-    },
-    {
         "actual": "virginica",
         "predicted": "virginica"
     },
     {
-        "actual": "setosa",
-        "predicted": "setosa"
-    },
-    {
         "actual": "versicolor",
         "predicted": "versicolor"
-    },
-    {
-        "actual": "versicolor",
-        "predicted": "virginica"
-    },
-    {
-        "actual": "versicolor",
-        "predicted": "versicolor"
-    },
-    {
-        "actual": "virginica",
-        "predicted": "virginica"
     },
     {
         "actual": "setosa",
@@ -190,13 +198,5 @@
     {
         "actual": "versicolor",
         "predicted": "versicolor"
-    },
-    {
-        "actual": "versicolor",
-        "predicted": "versicolor"
-    },
-    {
-        "actual": "virginica",
-        "predicted": "virginica"
     }
 ]
