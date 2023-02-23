@@ -3,13 +3,6 @@
 > Ash will give a 15 minute demo of some of the 'less used in data science' software tools that he's been using. For example: Clojure instead of Python, Clerk instead of Jupyter, DVC instead of run-all.sh.
 
 
-// keep to demo-able stuff 
-// - don't preach or try to convert! 
-// - might be of interest to see slightly different tech 
-// - not a side-by-side comparison
-
-
-
 
 ## Computer prep
 
@@ -85,7 +78,18 @@ Package        Version
 
 
 
+
+
 ## Demo
+
+
+// keep to demo-able stuff 
+// - don't preach or try to convert! 
+// - might be of interest to see slightly different tech 
+// - not a side-by-side comparison
+
+
+
 
 
 #### Preamble
@@ -95,7 +99,8 @@ Package        Version
 
 // these days... almost pick your platform and lang 
 // me: plat=JVM, lang=...
-// want: it simple! small syntax, ~0 boilerplate, good interop... >>> Clojure
+// want: it simple! small syntax, ~0 boilerplate, 
+//        good interop, a medium for solving problems!... >>> Clojure
 // demo some...
 
 
