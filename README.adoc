@@ -1,6 +1,6 @@
 # Demo some of the alternative software tools for data science
 
-> Ash will give a 15 minute demo of some of the 'less used in data science' software tools that he's been using. For example: Clojure instead of Python, Clerk instead of Jupyter, DVC instead of run-all.sh.
+> A 30 minute minute demo of some of the 'less used in data science' software tools that I've been using. For example: Clojure instead of Python, Clerk instead of Jupyter, DVC instead of run-all.sh.
 
 
 
